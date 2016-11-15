@@ -1,0 +1,126 @@
+$luna: #CEE2C4;
+$sombra: #A1B5C0;
+$fondo: #0D2C31;
+
+html {
+	font-size: 16px;
+	font-family: arial;
+}
+
+body {
+	background-color: $fondo;
+}
+
+.container {
+	width: 60rem;
+	height: 27rem;
+	margin: 0 auto;
+}
+
+@mixin circle($ancho, $color) {
+	width: $ancho;
+	height: $ancho;
+	background-color: $color;
+	border-radius: 50%;
+	position: absolute;
+} 
+
+.moon {
+	@include circle(15rem, $luna);
+	margin: 6rem 22rem;
+	transform: scale(1.5);
+	animation-name: scale;
+	filter: contrast(250%);
+	animation-play-state: running;
+	animation-duration: 5s;
+	&::before {
+		content: "";
+		@include circle(13rem, $sombra);
+		margin: 0.5rem 0 0 1rem;	
+	}
+	&::after {
+		content: "";
+		@include circle(11rem, $luna);
+		margin: 1rem 0 0 1rem;	
+	}
+}
+
+@keyframes scale {
+	from { 
+		transform: scale(.5);
+		filter: contrast(30%);
+	}
+
+	to {
+		transform: scale(1.5);
+		filter: contrast(250%);
+	}
+}
+
+%nube {
+	width: 25rem;
+	height: 4rem;
+	background-color: #617F9C80;
+	border-radius: 2rem;
+	position: absolute;
+}
+
+%nube_ {
+	content: "";
+	width: 13rem;
+	height: 4rem;
+	background-color: #617F9C80;
+	border-radius: 2rem;
+	position: absolute;
+}
+
+.nube_uno {
+	@extend  %nube;
+	margin: 8rem 0 0 0rem;
+	animation-name: nubes;
+	animation-play-state: running;
+	animation-duration: 5s;
+	transition: all;
+	&::before {
+		@extend  %nube_;
+		margin: -4rem 0 0 9rem;
+	}
+}
+
+@keyframes nubes {
+	from {
+		margin: 8rem 0 0 22rem;	
+	}
+	to {
+		margin: 8rem 0 0 0;
+	}
+}
+
+.nube_dos {
+	@extend  %nube;
+	margin: 18rem 0 0 31rem;
+	position: absolute;
+	animation-name: nubes_uno;
+	animation-play-state: running;
+	animation-duration: 5s;
+	transition: all;
+	&::before {
+		@extend  %nube_;
+		margin: -4rem 0 0 5rem;
+	}
+}
+
+@keyframes nubes_uno {
+	from {
+		margin: 18rem 0 0 13rem;	
+	}
+	to {
+		margin: 18rem 0 0 31rem;
+	}
+}
+
+.text {
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}

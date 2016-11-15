@@ -1,0 +1,98 @@
+html {
+  font-size: 16px;
+  font-family: arial; }
+
+body {
+  background-color: #0D2C31; }
+
+.container {
+  width: 60rem;
+  height: 27rem;
+  margin: 0 auto; }
+
+.moon {
+  width: 15rem;
+  height: 15rem;
+  background-color: #CEE2C4;
+  border-radius: 50%;
+  position: absolute;
+  margin: 6rem 22rem;
+  transform: scale(1.5);
+  animation-name: scale;
+  filter: contrast(250%);
+  animation-play-state: running;
+  animation-duration: 5s; }
+  .moon::before {
+    content: "";
+    width: 13rem;
+    height: 13rem;
+    background-color: #A1B5C0;
+    border-radius: 50%;
+    position: absolute;
+    margin: 0.5rem 0 0 1rem; }
+  .moon::after {
+    content: "";
+    width: 11rem;
+    height: 11rem;
+    background-color: #CEE2C4;
+    border-radius: 50%;
+    position: absolute;
+    margin: 1rem 0 0 1rem; }
+
+@keyframes scale {
+  from {
+    transform: scale(0.5);
+    filter: contrast(30%); }
+  to {
+    transform: scale(1.5);
+    filter: contrast(250%); } }
+.nube_uno, .nube_dos {
+  width: 25rem;
+  height: 4rem;
+  background-color: #617F9C80;
+  border-radius: 2rem;
+  position: absolute; }
+
+.nube_uno::before, .nube_dos::before {
+  content: "";
+  width: 13rem;
+  height: 4rem;
+  background-color: #617F9C80;
+  border-radius: 2rem;
+  position: absolute; }
+
+.nube_uno {
+  margin: 8rem 0 0 0rem;
+  animation-name: nubes;
+  animation-play-state: running;
+  animation-duration: 5s;
+  transition: all; }
+  .nube_uno::before {
+    margin: -4rem 0 0 9rem; }
+
+@keyframes nubes {
+  from {
+    margin: 8rem 0 0 22rem; }
+  to {
+    margin: 8rem 0 0 0; } }
+.nube_dos {
+  margin: 18rem 0 0 31rem;
+  position: absolute;
+  animation-name: nubes_uno;
+  animation-play-state: running;
+  animation-duration: 5s;
+  transition: all; }
+  .nube_dos::before {
+    margin: -4rem 0 0 5rem; }
+
+@keyframes nubes_uno {
+  from {
+    margin: 18rem 0 0 13rem; }
+  to {
+    margin: 18rem 0 0 31rem; } }
+.text {
+  text-align: center;
+  color: white;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=main.css.map */
